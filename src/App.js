@@ -5,15 +5,17 @@ import SignIn from './routes/signin/signin.component';
 import Contact from './routes/contact/contact.component';
 import Navigation from './routes/navigation/navigation.component';
 import Cart from './routes/cart/cart.component';
+import Register from './routes/register/register.component';
 
 const App = () => {
   return (
     <Routes>
       <Route path='/' element={<Navigation />}>
         <Route index element={<Home />} />
-        <Route path='/shop' element={<Shop />} />           
+        <Route path='/shop' element={<Shop />} />
+        <Route path='/contact' element={<Contact />} />           
         <Route path='/sign-in' element={<SignIn />} />
-        <Route path='/contact' element={<Contact />} />
+        <Route path='/register' element={<Register />} />        
         <Route path='/cart' element={<Cart />} />
       </Route>     
     </Routes>
