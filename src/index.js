@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
 import { UserProvider } from './contexts/user.context';
-import { ProductsProvider } from './contexts/products.context';
+import { CategoriesProvider } from './contexts/categories.context';
 import { CartItemsProvider } from './contexts/cart-items.context';
 import reportWebVitals from './reportWebVitals';
 
@@ -16,11 +16,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>      
       <UserProvider>
-        <ProductsProvider>
+        <CategoriesProvider>
           <CartItemsProvider>
             <App />
           </CartItemsProvider>
-        </ProductsProvider>
+        </CategoriesProvider>
       </UserProvider>      
     </BrowserRouter>
   </React.StrictMode>

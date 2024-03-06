@@ -9,7 +9,7 @@ import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component
 
 import { UserContext } from "../../contexts/user.context";
 import { CartItemsContext } from "../../contexts/cart-items.context";
-import './navigation.styles.scss';
+import { NavigationContainer, LogoContainer, NavLinksContainer, NavLink } from './navigation.styles';
 
 const Navigation = () => {
     const {currentUser} = useContext(UserContext);
@@ -17,21 +17,21 @@ const Navigation = () => {
 
     return (
         <Fragment>
-            <div className='navigation'>
-                <Link className='logo-container' to='/'><CrwnLogo className='logo' /></Link>
-                <div className='nav-links-container'>                    
-                    <Link className='nav-link' to='/shop'>SHOP</Link>
+            <NavigationContainer>
+                <LogoContainer to='/'><CrwnLogo className='logo' /></LogoContainer>
+                <NavLinksContainer>                    
+                    <NavLink to='/shop'>SHOP</NavLink>
                     { currentUser ? (
-                        <span className='nav-link' onClick={signOutUser}>SIGN OUT</span>)
-                    : <Link className='nav-link' to='/auth'>SIGN IN</Link>
+                        <NavLink as='span' onClick={signOutUser}>SIGN OUT</NavLink>)
+                    : <NavLink to='/auth'>SIGN IN</NavLink>
                     }
-                    <Link className='nav-link' to='/contact'>CONTACT</Link>
-                    <Link className='nav-link' to='/checkout'>CART</Link>
+                    <NavLink to='/contact'>CONTACT</NavLink>
+                    <NavLink to='/checkout'>CART</NavLink>
                     <CartIcon />                   
-                </div>
+                </NavLinksContainer>
                 { isCartOpen && <CartDropdown /> }
                 
-            </div>
+            </NavigationContainer>
             <Outlet />
         </Fragment>
     );
